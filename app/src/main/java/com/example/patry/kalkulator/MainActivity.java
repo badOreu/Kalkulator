@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     LogicService logicService;
     boolean mBound = false;
 
-    private class AsynTast extends AsyncTask<Integer, Void, Double> {
+    private class AsynkTask extends AsyncTask<Integer, Void, Double> {
         @Override
         protected Double doInBackground(Integer... doubles) {
             Random generator = new Random();
@@ -223,7 +223,7 @@ public class MainActivity extends AppCompatActivity {
         pi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new AsynTast().execute(Integer.parseInt(n1ET.getText().toString()));
+                new AsynkTask().execute(Integer.parseInt(n1ET.getText().toString()));
             }
         });
         }
