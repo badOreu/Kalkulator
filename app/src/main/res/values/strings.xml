@@ -11,4 +11,5 @@
     <string name="clrButton">CZYŚĆ</string>
     <string name="about">O Autorze</string>
     <string name="author">Autor: Patryk Surowiec</string>
+    <string name="cast">Cast</string>
 </resources>
