@@ -1,5 +1,6 @@
 package com.example.patry.kalkulator;
 
+import android.annotation.SuppressLint;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     LogicService logicService;
     boolean mBound = false;
 
+    @SuppressLint("StaticFieldLeak")
     private class AsynkTask extends AsyncTask<Integer, Void, Double> {
         @Override
         protected Double doInBackground(Integer... doubles) {
@@ -70,10 +72,10 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.about: {
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                View v = getLayoutInflater().inflate(R.layout.author_layout, null);
+                @SuppressLint("InflateParams") View v = getLayoutInflater().inflate(R.layout.author_layout, null);
                 builder.setView(v);
                 final AlertDialog dialog = builder.create();
-                final Button btn = (Button) v.findViewById(R.id.okBtn);
+                final Button btn = v.findViewById(R.id.okBtn);
                 btn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -128,16 +130,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        n1ET = (EditText) findViewById(R.id.n1EditText);
-        n2ET = (EditText) findViewById(R.id.n2EditText);
-        resET = (EditText) findViewById(R.id.resEditText);
-        add = (Button) findViewById(R.id.addButton);
-        sub = (Button) findViewById(R.id.subButton);
-        mul = (Button) findViewById(R.id.mulButton);
-        div = (Button) findViewById(R.id.divButton);
-        pi = (Button) findViewById(R.id.piButton);
-        clr = (Button) findViewById(R.id.clrButton);
-        pBar = (ProgressBar) findViewById(R.id.pBar);
+        n1ET = findViewById(R.id.n1EditText);
+        n2ET = findViewById(R.id.n2EditText);
+        resET = findViewById(R.id.resEditText);
+        add = findViewById(R.id.addButton);
+        sub = findViewById(R.id.subButton);
+        mul = findViewById(R.id.mulButton);
+        div = findViewById(R.id.divButton);
+        pi = findViewById(R.id.piButton);
+        clr = findViewById(R.id.clrButton);
+        pBar = findViewById(R.id.pBar);
 
         add.setOnClickListener(new View.OnClickListener() {
             @Override
