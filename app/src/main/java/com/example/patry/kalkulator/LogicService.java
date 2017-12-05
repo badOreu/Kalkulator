@@ -2,15 +2,37 @@ package com.example.patry.kalkulator;
 
 import android.app.Service;
 import android.content.Intent;
+import android.os.Binder;
 import android.os.IBinder;
 
 public class LogicService extends Service {
-    public LogicService() {
+
+    private final IBinder mBinder = new LocalBinder();
+
+    public Double add(Double n1, Double n2){
+        return n1+n2;
+    }
+
+    public Double sub(Double n1, Double n2){
+        return n1-n2;
+    }
+
+    public Double mul(Double n1, Double n2){
+        return n1*n2;
+    }
+
+    public Double div(Double n1, Double n2){
+        return n1/n2;
     }
 
     @Override
     public IBinder onBind(Intent intent) {
-        // TODO: Return the communication channel to the service.
-        throw new UnsupportedOperationException("Not yet implemented");
+       return mBinder;
+    }
+
+    public class LocalBinder extends Binder {
+        LogicService getService() {
+            return LogicService.this;
+        }
     }
 }
