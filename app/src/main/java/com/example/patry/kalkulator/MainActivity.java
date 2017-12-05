@@ -34,7 +34,8 @@ public class MainActivity extends AppCompatActivity {
         protected Double doInBackground(Integer... doubles) {
             Random generator = new Random();
             int nk = 0;
-            double x, y, s;
+            double x, y;
+            double s;
             for (int i = 1; i <= doubles[0]; i++)
             {
                 x = generator.nextDouble();
